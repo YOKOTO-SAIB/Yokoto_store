@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online Yokoto</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            color: #333;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: #4cafb5;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .store-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeInItems 1.5s ease-out;
+        }
+
+        @keyframes fadeInItems {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .item {
+            background: #fff;
+            margin: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .item:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .item-details {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .item-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .item-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .item-details button {
+            background: #4cafb5;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .item-details button:hover {
+            transform: translateY(-2px);
+            background: #3b9f97;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            animation: fadeModal 0.5s ease-out;
+        }
+
+        @keyframes fadeModal {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(0.8);
+            animation: modalPopIn 0.5s ease-out forwards;
+        }
+
+        @keyframes modalPopIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-content input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border 0.3s;
+        }
+
+        .modal-content input:focus {
+            border: 1px solid #4cafb5;
+            outline: none;
+        }
+
+        .modal-content button {
+            background: #4cafb5;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .modal-content button:hover {
+            background: #3b9f97;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Toko Yokoto</h1>
+        <p>Tempat belanja dengan pengalaman terbaik!</p>
+    </header>
+    <div class="store-container">
+    <div class="item">
+        <img src="p.jpg" alt="Ram 1Gb Cpu 100%">
+        <div class="item-details">
+            <h3>Ram 1Gb Cpu 100%</h3>
+            <p>Rp 2.000</p>
+            <button onclick="openModal()">Beli Sekarang</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="p.jpg" alt="Ram 4Gb Cpu 100%">
+        <div class="item-details">
+            <h3>Ram 4Gb Cpu 100%</h3>
+            <p>Rp 5.000</p>
+            <button onclick="openModal()">Beli Sekarang</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="p.jpg" alt="Ram 5Gb Cpu 100%">
+        <div class="item-details">
+            <h3>Ram 5Gb Cpu 100%</h3>
+            <p>Rp 6.000</p>
+            <button onclick="openModal()">Beli Sekarang</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="p.jpg" alt="Ram 6Gb Cpu 100%">
+        <div class="item-details">
+            <h3>Ram 6Gb Cpu 100%</h3>
+            <p>Rp 7.000</p>
+            <button onclick="openModal()">Beli Sekarang</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="p.jpg" alt="Ram 7Gb Cpu 120%">
+        <div class="item-details">
+            <h3>Ram 7Gb Cpu 120%</h3>
+            <p>Rp 8.000</p>
+            <button onclick="openModal()">Beli Sekarang</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="p.jpg" alt="Ram 8Gb Cpu 140%">
+        <div class="item-details">
+            <h3>Ram 8Gb Cpu 140%</h3>
+            <p>Rp 9.000</p>
+            <button onclick="openModal()">Beli Sekarang</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="p.jpg" alt="Ram Unli Cpu Unli">
+        <div class="item-details">
+            <h3>Ram Unli Cpu Unli</h3>
+            <p>Rp 10.000</p>
+            <button onclick="openModal()">Beli Sekarang</button>
+        </div>
+    </div>
+</div>
+
+    <div class="modal" id="buyModal">
+        <div class="modal-content">
+            <h2>Form Pembelian</h2>
+            <input type="text" id="buyerName" placeholder="Nama Anda" required>
+            <input type="tel" id="buyerPhone" placeholder="Nomor WhatsApp" required>
+            <input type="email" id="buyerEmail" placeholder="Email Anda" required>
+            <button onclick="sendToTelegram()">Kirim</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('buyModal');
+        
+        function openModal() {
+            modal.style.display = 'flex';
+        }
+
+        function sendToTelegram() {
+            const buyerName = document.getElementById('buyerName').value;
+            const buyerPhone = document.getElementById('buyerPhone').value;
+            const buyerEmail = document.getElementById('buyerEmail').value;
+
+            const message = `Pesanan Baru abang yokoto:
+Nama: ${buyerName}
+Nomor WhatsApp: ${buyerPhone}
+Email: ${buyerEmail}`;
+
+            const botToken = '7611311165:AAE8D2oKC-i_W0NLfBimWW_mrOITa7T-ZP4';
+            const chatId = '7016045840';
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        alert('Pesanan berhasil dikirim!');
+                        modal.style.display = 'none';
+                    } else {
+                        alert('Gagal mengirim pesanan.');
+                    }
+                })
+                .catch(error => {
+                    alert('Terjadi kesalahan: ' + error);
+                });
+        }
+    </script>
+</body>
+</html>
